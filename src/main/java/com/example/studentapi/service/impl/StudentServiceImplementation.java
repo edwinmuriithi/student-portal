@@ -6,6 +6,8 @@ import com.example.studentapi.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImplementation implements StudentService {
 
@@ -19,5 +21,11 @@ public class StudentServiceImplementation implements StudentService {
         student.setAge(student.getAge());
         Student newStudent = studentRepository.save(student);
         return newStudent;
+    }
+
+    @Override
+    public List<Student> viewAllStudents() {
+        List<Student> students = studentRepository.findAll();
+        return students;
     }
 }
